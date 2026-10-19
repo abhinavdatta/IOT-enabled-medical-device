@@ -1,0 +1,17 @@
+# Gradle / Android build outputs
+.gradle/
+build/
+app/build/
+local.properties
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Local tooling
+.freebuff/
+
+# OS noise
+.DS_Store
+Thumbs.db

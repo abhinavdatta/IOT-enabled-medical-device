@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="center_vertical">
+
+        <ImageButton android:id="@+id/btnBackTheme"
+            android:layout_width="40dp" android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_back" android:contentDescription="Back" />
+
+        <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+            android:text="Device theme" android:textColor="?attr/wbTextPrimary"
+            android:textSize="24sp" android:textStyle="bold" android:layout_marginStart="4dp" />
+    </LinearLayout>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="@string/tagline_theme"
+        android:textColor="?attr/wbTextSecondary" android:textSize="13sp"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Theme options -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:background="@drawable/card_bg"
+        android:padding="14dp" android:layout_marginBottom="12dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="APPEARANCE" android:textColor="?attr/wbTextMuted"
+            android:textSize="10sp" android:letterSpacing="0.12" android:textStyle="bold" />
+
+        <RadioGroup android:id="@+id/rgTheme"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:layout_marginTop="10dp">
+
+            <RadioButton android:id="@+id/rbThemeGlass"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Glass" android:textColor="?attr/wbTextPrimary"
+                android:textSize="15sp" android:padding="14dp"
+                android:background="@drawable/card_bg_selected" android:layout_marginBottom="6dp" />
+
+            <RadioButton android:id="@+id/rbThemeLight"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Light" android:textColor="?attr/wbTextPrimary"
+                android:textSize="15sp" android:padding="14dp"
+                android:background="@drawable/card_bg_selected" android:layout_marginBottom="6dp" />
+
+            <RadioButton android:id="@+id/rbThemeOled"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="OLED" android:textColor="?attr/wbTextPrimary"
+                android:textSize="15sp" android:padding="14dp"
+                android:background="@drawable/card_bg_selected" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <TextView android:id="@+id/tvThemePreview"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Live preview will apply when you tap Apply theme."
+        android:textColor="?attr/wbTextMuted" android:textSize="12sp" android:gravity="center" />
+
+    <Button android:id="@+id/btnApplyTheme"
+        android:layout_width="match_parent" android:layout_height="56dp"
+        android:background="@drawable/btn_normal"
+        android:text="APPLY THEME" android:textColor="?attr/wbBg"
+        android:textStyle="bold" />
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" android:gravity="center"
+        android:text="Water-only supervised bench prototype · Not for medical or human use"
+        android:textColor="?attr/wbTextMuted" android:textSize="11sp" />
+
+</LinearLayout>

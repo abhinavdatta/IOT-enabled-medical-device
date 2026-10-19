@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="WATERBENCH / CONTROLLER"
+            android:textColor="?attr/wbTextMuted" android:textSize="11sp"
+            android:letterSpacing="0.12" android:textStyle="bold" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Settings" android:textColor="?attr/wbTextPrimary"
+            android:textSize="28sp" android:textStyle="bold" android:layout_marginTop="4dp" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/tagline_settings" android:textColor="?attr/wbTextSecondary"
+            android:textSize="13sp" android:layout_marginBottom="20dp" />
+
+        <!-- ===== DEVICES ===== -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="DEVICES" android:textColor="?attr/wbTextMuted"
+            android:textSize="10sp" android:letterSpacing="0.12" android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Current device card -->
+        <LinearLayout android:id="@+id/cardDeviceCurrent"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="@drawable/card_bg"
+            android:padding="14dp" android:layout_marginBottom="8dp">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+
+                <View android:id="@+id/dotSettings"
+                    android:layout_width="10dp" android:layout_height="10dp"
+                    android:background="?attr/wbAccent" />
+
+                <TextView android:id="@+id/tvSettingsDevice"
+                    android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" android:text="Device 1 · WaterBench-ESP32"
+                    android:textColor="?attr/wbTextPrimary" android:textSize="14sp" android:textStyle="bold" />
+
+                <TextView android:id="@+id/tvSettingsConn"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Connected" android:textColor="?attr/wbAccent" android:textSize="11sp" />
+            </LinearLayout>
+
+            <TextView android:id="@+id/tvSettingsWifiName"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="6dp" android:text="WaterBench-ESP32"
+                android:textColor="?attr/wbTextPrimary" android:textSize="16sp" android:textStyle="bold" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="2dp" android:text="Local Wi-Fi direct link · no internet expected"
+                android:textColor="?attr/wbTextMuted" android:textSize="11sp" />
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginTop="10dp">
+
+                <Button android:id="@+id/btnDeviceSettings"
+                    android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp"
+                    android:background="@drawable/btn_normal" android:text="OPEN DEVICE SETTINGS"
+                    android:textColor="?attr/wbBg" android:textStyle="bold" android:layout_marginEnd="6dp" />
+
+                <Button android:id="@+id/btnAddDevice"
+                    android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp"
+                    android:background="@drawable/btn_secondary" android:text="ADD NEW DEVICE"
+                    android:textColor="?attr/wbTextPrimary" android:textStyle="bold" android:layout_marginStart="6dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Registered devices list (populated dynamically) -->
+        <LinearLayout android:id="@+id/deviceListContainer"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:layout_marginBottom="8dp" />
+
+        <TextView android:id="@+id/tvRegisteredCount"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Registered devices: 1" android:textColor="?attr/wbTextMuted"
+            android:textSize="11sp" android:layout_marginBottom="16dp" />
+
+        <!-- ===== APPEARANCE ===== -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="APPEARANCE" android:textColor="?attr/wbTextMuted"
+            android:textSize="10sp" android:letterSpacing="0.12" android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout android:id="@+id/cardAppearance"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="@drawable/card_bg"
+            android:padding="14dp" android:layout_marginBottom="12dp">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+
+                <ImageView android:layout_width="20dp" android:layout_height="20dp"
+                    android:src="@drawable/ic_palette" android:contentDescription="Appearance" />
+
+                <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" android:text="Theme: Glass / Light / OLED"
+                    android:textColor="?attr/wbTextPrimary" android:textSize="14sp" android:textStyle="bold" />
+
+                <TextView android:id="@+id/tvCurrentTheme"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Glass" android:textColor="?attr/wbAccent" android:textSize="11sp" />
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Choose the app appearance. Change takes effect immediately."
+                android:textColor="?attr/wbTextSecondary" android:textSize="12sp" />
+
+            <Button android:id="@+id/btnOpenTheme"
+                android:layout_width="match_parent" android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/btn_normal" android:text="OPEN DEVICE THEME"
+                android:textColor="?attr/wbBg" android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- ===== DATA & RECORDS ===== -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="DATA &amp; RECORDS" android:textColor="?attr/wbTextMuted"
+            android:textSize="10sp" android:letterSpacing="0.12" android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout android:id="@+id/cardDataRecords"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="@drawable/card_bg"
+            android:padding="14dp" android:layout_marginBottom="20dp">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+
+                <ImageView android:layout_width="20dp" android:layout_height="20dp"
+                    android:src="@drawable/ic_export" android:contentDescription="Export" />
+
+                <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" android:text="Export telemetry, sessions, calibrations, alarms"
+                    android:textColor="?attr/wbTextPrimary" android:textSize="14sp" android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="CSV · JSON · PDF · Files stay on the device until you choose to share."
+                android:textColor="?attr/wbTextSecondary" android:textSize="12sp" />
+
+            <Button android:id="@+id/btnOpenExport"
+                android:layout_width="match_parent" android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/btn_normal" android:text="OPEN EXPORT DATA"
+                android:textColor="?attr/wbBg" android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- ===== HARDWARE SAFETY ===== -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="@drawable/card_bg"
+            android:padding="14dp" android:layout_marginBottom="12dp">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+
+                <ImageView android:layout_width="20dp" android:layout_height="20dp"
+                    android:src="@drawable/ic_check" android:contentDescription="check" />
+
+                <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" android:text="HARDWARE SAFETY STAYS ACTIVE"
+                    android:textColor="?attr/wbTextPrimary" android:textSize="13sp" android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="The ESP32 retains sensor interlocks and pump cutoff if the app disconnects."
+                android:textColor="?attr/wbTextSecondary" android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" android:gravity="center"
+            android:text="Water-only supervised bench prototype · Not for medical or human use"
+            android:textColor="?attr/wbTextMuted" android:textSize="11sp" />
+
+    </LinearLayout>
+</ScrollView>

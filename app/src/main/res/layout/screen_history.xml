@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="WATERBENCH / CONTROLLER"
+            android:textColor="?attr/wbTextMuted" android:textSize="11sp"
+            android:letterSpacing="0.12" android:textStyle="bold" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Device log" android:textColor="?attr/wbTextPrimary"
+            android:textSize="28sp" android:textStyle="bold" android:layout_marginTop="4dp" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/tagline_history" android:textColor="?attr/wbTextSecondary"
+            android:textSize="13sp" android:layout_marginBottom="16dp" />
+
+        <!-- LIVE MONITOR card -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="@drawable/card_bg"
+            android:padding="14dp" android:layout_marginBottom="12dp">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+
+                <View android:id="@+id/dotMonitor"
+                    android:layout_width="10dp" android:layout_height="10dp"
+                    android:background="?attr/wbAccent" />
+
+                <TextView android:id="@+id/tvMonitorStatus"
+                    android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" android:text="Connected · Device 1"
+                    android:textColor="?attr/wbTextPrimary" android:textSize="14sp" android:textStyle="bold" />
+
+                <TextView android:id="@+id/tvRefreshNote"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Pull to refresh" android:textColor="?attr/wbTextMuted"
+                    android:textSize="11sp" android:visibility="gone" />
+            </LinearLayout>
+
+            <TextView android:id="@+id/tvLastPacket"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginStart="18dp" android:text="Last packet · just now"
+                android:textColor="?attr/wbTextSecondary" android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- LEVEL FILTER -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="LEVEL FILTER" android:textColor="?attr/wbTextMuted"
+            android:textSize="10sp" android:letterSpacing="0.12" android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:fillViewport="false"
+            android:scrollbars="none">
+
+            <LinearLayout android:id="@+id/levelFilterBar"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- EVENT STREAM card -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="@drawable/card_bg"
+            android:padding="14dp">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+
+                <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                    android:text="EVENT STREAM" android:textColor="?attr/wbTextMuted"
+                    android:textSize="10sp" android:letterSpacing="0.12" android:textStyle="bold" />
+
+                <TextView android:id="@+id/tvLiveIndicator"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="● LIVE" android:textColor="?attr/wbAccent"
+                    android:textSize="11sp" android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView android:id="@+id/tvEventStream"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" android:fontFamily="monospace"
+                android:textColor="?attr/wbTextPrimary" android:textSize="12sp"
+                android:lineSpacingExtra="4dp"
+                android:text="No events yet." />
+        </LinearLayout>
+
+        <!-- Buttons row -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="12dp">
+
+            <Button android:id="@+id/btnClearLog"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="52dp"
+                android:background="@drawable/btn_secondary"
+                android:text="CLEAR VIEW" android:textColor="?attr/wbTextPrimary"
+                android:textStyle="bold" android:layout_marginEnd="6dp" />
+
+            <Button android:id="@+id/btnExportLogs"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="52dp"
+                android:background="@drawable/btn_normal"
+                android:text="EXPORT LOGS" android:textColor="?attr/wbBg"
+                android:textStyle="bold" android:layout_marginStart="6dp" />
+        </LinearLayout>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" android:gravity="center"
+            android:text="Water-only supervised bench prototype · Not for medical or human use"
+            android:textColor="?attr/wbTextMuted" android:textSize="11sp" />
+
+    </LinearLayout>
+</ScrollView>

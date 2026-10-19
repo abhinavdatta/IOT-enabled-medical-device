@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">WaterBench Controller</string>
+    <string name="tagline_home">Your water-test rig, at a glance.</string>
+    <string name="tagline_alert">A fault has been reported by the ESP32.</string>
+    <string name="tagline_calibration">Measure collected water to improve the estimate.</string>
+    <string name="tagline_history">Live events, sensor readings, and device health.</string>
+    <string name="tagline_settings">Manage devices, appearance, and your records.</string>
+    <string name="tagline_device_settings">Local Wi-Fi connection and device identity.</string>
+    <string name="tagline_export">Choose records, device, dates and format.</string>
+    <string name="export_done">Exported to %s</string>
+    <string name="export_shared">Share export with…</string>
+    <string name="nav_export">Export</string>
+    <string name="nav_theme">Theme</string>
+    <string name="dialog_unsaved_title">Unsaved changes</string>
+    <string name="dialog_unsaved_msg">You have unsaved theme changes. Leave anyway?</string>
+    <string name="dialog_leave">Leave</string>
+    <string name="dialog_keep_editing">Keep editing</string>
+    <string name="tagline_theme">Choose Glass, Light or OLED appearance.</string>
+    <string name="add_device">Add new device</string>
+    <string name="device_added">Device added</string>
+    <string name="nav_history">History</string>
+    <string name="level_all">All levels</string>
+    <string name="level_info">INFO</string>
+    <string name="level_warn">WARN</string>
+    <string name="level_fault">FAULT</string>
+    <string name="level_state">STATE</string>
+    <string name="level_cmd">CMD</string>
+    <string name="level_done">DONE</string>
+    <string name="level_cal">CAL</string>
+    <string name="export_logs">Export logs</string>
+</resources>

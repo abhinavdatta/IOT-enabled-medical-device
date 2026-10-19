@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="WATERBENCH / CONTROLLER"
+        android:textColor="?attr/wbTextMuted" android:textSize="11sp"
+        android:letterSpacing="0.12" android:textStyle="bold" />
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Calibrate flow" android:textColor="?attr/wbTextPrimary"
+        android:textSize="28sp" android:textStyle="bold" android:layout_marginTop="4dp" />
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="@string/tagline_calibration" android:textColor="?attr/wbTextSecondary"
+        android:textSize="13sp" android:layout_marginBottom="16dp" />
+
+    <!-- BEFORE STARTING card -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:background="@drawable/card_bg"
+        android:padding="14dp" android:layout_marginBottom="12dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="BEFORE STARTING" android:textColor="?attr/wbTextMuted"
+            android:textSize="10sp" android:letterSpacing="0.12" android:textStyle="bold" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="01  Place outlet over a measuring container.\n02  Run a short water-only test.\n03  Measure and enter the collected volume."
+            android:textColor="?attr/wbTextSecondary" android:textSize="13sp" android:lineSpacingExtra="6dp" />
+    </LinearLayout>
+
+    <!-- TEST MOTOR COMMAND card -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:background="@drawable/card_bg"
+        android:padding="14dp" android:layout_marginBottom="12dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="TEST MOTOR COMMAND (PWM)" android:textColor="?attr/wbTextMuted"
+            android:textSize="10sp" android:letterSpacing="0.12" android:textStyle="bold" />
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
+
+            <TextView android:id="@+id/tvCalPwm"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="6dp" android:text="112"
+                android:textColor="?attr/wbTextPrimary" android:textSize="30sp" android:textStyle="bold" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginStart="10dp" android:layout_marginBottom="6dp"
+                android:text="Allowed range 55–180" android:textColor="?attr/wbTextSecondary"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <SeekBar android:id="@+id/seekCalPwm"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="6dp" android:max="125" android:progress="57"
+            android:progressTint="?attr/wbAccent" android:thumbTint="?attr/wbAccent" />
+    </LinearLayout>
+
+    <!-- START / STOP TEST buttons -->
+    <Button android:id="@+id/btnCalStart"
+        android:layout_width="match_parent" android:layout_height="52dp"
+        android:background="@drawable/btn_normal" android:text="START WATER TEST"
+        android:textColor="?attr/wbBg" android:textStyle="bold" android:layout_marginBottom="10dp" />
+
+    <Button android:id="@+id/btnCalStop"
+        android:layout_width="match_parent" android:layout_height="52dp"
+        android:background="@drawable/btn_stop" android:text="STOP TEST"
+        android:textColor="?attr/wbTextPrimary" android:textStyle="bold" android:layout_marginBottom="12dp" />
+
+    <!-- COLLECTED VOLUME card -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:background="@drawable/card_bg"
+        android:padding="14dp" android:layout_marginBottom="10dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="COLLECTED VOLUME" android:textColor="?attr/wbTextMuted"
+            android:textSize="10sp" android:letterSpacing="0.12" android:textStyle="bold" />
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="8dp">
+
+            <EditText android:id="@+id/etCalVolume"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:background="@drawable/input_bg" android:padding="12dp"
+                android:hint="Enter mL — e.g. 3.5" android:textColorHint="?attr/wbTextMuted"
+                android:textColor="?attr/wbTextPrimary" android:textSize="14sp"
+                android:inputType="numberDecimal" />
+
+            <Button android:id="@+id/btnCalSave"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:background="@drawable/btn_secondary"
+                android:paddingStart="16dp" android:paddingEnd="16dp"
+                android:text="SAVE RESULT" android:textColor="?attr/wbTextPrimary"
+                android:textSize="13sp" android:textStyle="bold" android:layout_marginStart="10dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Supervised water bench testing only. Not medically accurate."
+        android:textColor="?attr/wbTextMuted" android:textSize="11sp" />
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" android:gravity="center"
+        android:text="Water-only supervised bench prototype · Not for medical or human use"
+        android:textColor="?attr/wbTextMuted" android:textSize="11sp" />
+</LinearLayout>

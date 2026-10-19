@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="WATERBENCH / CONTROLLER"
+            android:textColor="?attr/wbTextMuted" android:textSize="11sp"
+            android:letterSpacing="0.12"
+            android:textStyle="bold" />
+
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
+
+            <View android:layout_width="10dp" android:layout_height="10dp"
+                android:background="?attr/wbAccent" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="LOCAL"
+                android:textColor="?attr/wbTextSecondary" android:textSize="11sp"
+                android:letterSpacing="0.12" android:layout_marginStart="6dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Bench dashboard" android:textColor="?attr/wbTextPrimary"
+        android:textSize="28sp" android:textStyle="bold" android:layout_marginTop="4dp" />
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="@string/tagline_home" android:textColor="?attr/wbTextSecondary"
+        android:textSize="13sp" android:layout_marginBottom="16dp" />
+
+    <!-- SELECT DEVICE card -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:background="@drawable/card_bg"
+        android:padding="14dp" android:layout_marginBottom="12dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="SELECT DEVICE" android:textColor="?attr/wbTextMuted"
+            android:textSize="10sp" android:letterSpacing="0.12" android:textStyle="bold" />
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="8dp"
+            android:gravity="center_vertical">
+
+            <Spinner android:id="@+id/spnDevice"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp"
+                android:background="@drawable/input_bg" android:paddingStart="12dp"
+                android:paddingEnd="12dp" />
+
+            <Button android:id="@+id/btnAddDevice"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:background="@drawable/btn_secondary"
+                android:padding="10dp" android:layout_marginStart="8dp"
+                android:src="@drawable/ic_check" android:contentDescription="Add device"
+                android:text="+" android:textSize="20sp" android:textStyle="bold"
+                android:textColor="?attr/wbTextPrimary" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- CONNECTION card -->
+    <LinearLayout android:id="@+id/cardConn"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:background="@drawable/card_bg"
+        android:padding="14dp" android:layout_marginBottom="12dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
+
+            <View android:id="@+id/dotConn"
+                android:layout_width="10dp" android:layout_height="10dp"
+                android:background="?attr/wbAccent" />
+
+            <TextView android:id="@+id/tvConnStatus"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:layout_marginStart="8dp" android:text="ESP32 CONNECTED"
+                android:textColor="?attr/wbTextPrimary" android:textSize="14sp" android:textStyle="bold" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Live device status" android:textColor="?attr/wbTextMuted"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <TextView android:id="@+id/tvWifiName2"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginStart="18dp" android:text="WaterBench-ESP32"
+            android:textColor="?attr/wbTextSecondary" android:textSize="13sp" />
+    </LinearLayout>
+
+    <!-- CURRENT SESSION card -->
+    <LinearLayout android:id="@+id/cardSession"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:background="@drawable/card_bg"
+        android:padding="16dp" android:layout_marginBottom="12dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
+
+            <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:text="CURRENT SESSION" android:textColor="?attr/wbTextMuted"
+                android:textSize="10sp" android:letterSpacing="0.12" android:textStyle="bold" />
+
+            <TextView android:id="@+id/chipState"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="RUNNING" android:textColor="?attr/wbTextPrimary"
+                android:textSize="11sp" android:textStyle="bold"
+                android:background="@drawable/chip_bg" android:paddingStart="12dp"
+                android:paddingEnd="12dp" android:paddingTop="4dp" android:paddingBottom="4dp" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="bottom"
+            android:layout_marginTop="8dp">
+
+            <TextView android:id="@+id/tvDropsDelivered"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="1" android:textColor="?attr/wbTextPrimary" android:textSize="42sp" android:textStyle="bold" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text=" of 3 drops" android:textColor="?attr/wbTextSecondary"
+                android:textSize="14sp" android:layout_marginStart="6dp" android:layout_marginBottom="6dp" />
+
+            <TextView android:id="@+id/tvDropsLeft"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:gravity="end" android:text="2 LEFT" android:textColor="?attr/wbTextSecondary"
+                android:textSize="12sp" android:textStyle="bold" />
+        </LinearLayout>
+
+        <ProgressBar android:id="@+id/progressDrops"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent" android:layout_height="6dp"
+            android:layout_marginTop="6dp" android:progress="30" android:max="100"
+            android:progressTint="?attr/wbAccent" android:progressBackgroundTint="?attr/wbProgressTrack" />
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="10dp"
+            android:gravity="bottom">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="ELAPSED" android:textColor="?attr/wbTextMuted"
+                android:textSize="10sp" android:letterSpacing="0.12" android:textStyle="bold" />
+
+            <TextView android:id="@+id/tvElapsed"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:layout_marginStart="10dp" android:text="00:00:16"
+                android:textColor="?attr/wbTextPrimary" android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- MOTOR OUTPUT / ELECTRICAL grid -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:layout_marginBottom="12dp">
+
+        <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="@drawable/card_bg"
+            android:padding="14dp" android:layout_marginEnd="6dp">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="MOTOR OUTPUT" android:textColor="?attr/wbTextMuted"
+                android:textSize="10sp" android:letterSpacing="0.12" android:textStyle="bold" />
+
+            <TextView android:id="@+id/tvMotorPct"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="6dp" android:text="48%"
+                android:textColor="?attr/wbTextPrimary" android:textSize="28sp" android:textStyle="bold" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Commanded PWM · not RPM" android:textColor="?attr/wbTextMuted"
+                android:textSize="11sp" />
+
+            <TextView android:id="@+id/tvMotorVoltEst"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="6dp" android:text="2.39 V est."
+                android:textColor="?attr/wbTextSecondary" android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="@drawable/card_bg"
+            android:padding="14dp" android:layout_marginStart="6dp">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="ELECTRICAL" android:textColor="?attr/wbTextMuted"
+                android:textSize="10sp" android:letterSpacing="0.12" android:textStyle="bold" />
+
+            <TextView android:id="@+id/tvBusV"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="6dp" android:text="4.91 V"
+                android:textColor="?attr/wbTextPrimary" android:textSize="28sp" android:textStyle="bold" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="INA219 bus voltage" android:textColor="?attr/wbTextMuted"
+                android:textSize="11sp" />
+
+            <TextView android:id="@+id/tvCurrentMa"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="6dp" android:text="280 mA"
+                android:textColor="?attr/wbTextSecondary" android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- PRESSURE / FLOW card -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:background="@drawable/card_bg"
+        android:padding="14dp" android:layout_marginBottom="12dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="PRESSURE / FLOW" android:textColor="?attr/wbTextMuted"
+            android:textSize="10sp" android:letterSpacing="0.12" android:textStyle="bold" />
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="6dp">
+
+            <TextView android:id="@+id/tvPressure"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:text="4.20 kPa" android:textColor="?attr/wbTextPrimary"
+                android:textSize="20sp" android:textStyle="bold" />
+
+            <TextView android:id="@+id/tvFlow"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:gravity="end" android:text="1.850 mL/min"
+                android:textColor="?attr/wbTextPrimary" android:textSize="20sp" android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="4dp">
+
+            <TextView android:id="@+id/tvDropsPerSec"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:text="0.617 drops/s" android:textColor="?attr/wbTextSecondary" android:textSize="11sp" />
+
+            <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:gravity="end" android:text="Provisional until calibrated"
+                android:textColor="?attr/wbTextMuted" android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="10dp"
+            android:gravity="center_vertical">
+
+            <EditText android:id="@+id/etFlow"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:background="@drawable/input_bg" android:padding="10dp"
+                android:hint="Set flow · 0.1–5.0 mL/min" android:textColorHint="?attr/wbTextMuted"
+                android:textColor="?attr/wbTextPrimary" android:textSize="13sp"
+                android:inputType="numberDecimal" />
+
+            <Button android:id="@+id/btnSetFlow"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:background="@drawable/btn_secondary"
+                android:paddingStart="14dp" android:paddingEnd="14dp"
+                android:text="SET" android:textColor="?attr/wbTextPrimary"
+                android:textSize="13sp" android:textStyle="bold" android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="The physical speed knob on the hardware remains the final local maximum-speed limit."
+            android:textColor="?attr/wbTextMuted" android:textSize="11sp" />
+    </LinearLayout>
+
+    <!-- ALARM banner (hidden by default) -->
+    <TextView android:id="@+id/bannerAlarm"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="@drawable/btn_stop" android:padding="14dp"
+        android:layout_marginBottom="12dp" android:visibility="gone"
+        android:text="Occlusion alarm — pump is off." android:textColor="?attr/wbTextPrimary"
+        android:textSize="14sp" android:textStyle="bold" />
+
+    <!-- Big START / PAUSE / RESUME / ACK buttons -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:layout_marginBottom="10dp">
+
+        <Button android:id="@+id/btnStart"
+            android:layout_width="0dp" android:layout_weight="1" android:layout_height="52dp"
+            android:background="@drawable/btn_normal" android:layout_marginEnd="6dp"
+            android:text="START" android:textColor="?attr/wbBg" android:textStyle="bold" />
+
+        <Button android:id="@+id/btnPause"
+            android:layout_width="0dp" android:layout_weight="1" android:layout_height="52dp"
+            android:background="@drawable/btn_normal" android:layout_marginEnd="6dp"
+            android:text="PAUSE" android:textColor="?attr/wbBg" android:textStyle="bold" />
+
+        <Button android:id="@+id/btnResume"
+            android:layout_width="0dp" android:layout_weight="1" android:layout_height="52dp"
+            android:background="@drawable/btn_normal" android:layout_marginEnd="6dp"
+            android:text="RESUME" android:textColor="?attr/wbBg" android:textStyle="bold" />
+
+        <Button android:id="@+id/btnAck"
+            android:layout_width="0dp" android:layout_weight="1" android:layout_height="52dp"
+            android:background="@drawable/btn_secondary" android:layout_marginEnd="6dp"
+            android:text="ACK" android:textColor="?attr/wbTextPrimary" android:textStyle="bold" />
+    </LinearLayout>
+
+    <Button android:id="@+id/btnStop"
+        android:layout_width="match_parent" android:layout_height="56dp"
+        android:background="@drawable/btn_stop" android:text="STOP PUMP"
+        android:textColor="?attr/wbTextPrimary" android:textStyle="bold" />
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" android:gravity="center"
+        android:text="Water-only supervised bench prototype · Not for medical or human use"
+        android:textColor="?attr/wbTextMuted" android:textSize="11sp" />
+</LinearLayout>

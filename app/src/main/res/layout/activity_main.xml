@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/wbBg">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/navBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp" android:paddingEnd="8dp"
+        android:paddingTop="8dp" android:paddingBottom="8dp"
+        android:background="@drawable/nav_bg">
+
+        <ImageButton android:id="@+id/navHome"
+            android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp"
+            android:background="@drawable/nav_item_selected"
+            android:src="@drawable/ic_home" android:contentDescription="Home"
+            android:scaleType="centerInside" />
+
+        <ImageButton android:id="@+id/navCalibrate"
+            android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_calibration" android:contentDescription="Calibration"
+            android:scaleType="centerInside" />
+
+        <ImageButton android:id="@+id/navHistory"
+            android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_history" android:contentDescription="History"
+            android:scaleType="centerInside" />
+
+        <ImageButton android:id="@+id/navSettings"
+            android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_settings" android:contentDescription="Settings"
+            android:scaleType="centerInside" />
+    </LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

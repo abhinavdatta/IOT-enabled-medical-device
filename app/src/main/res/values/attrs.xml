@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- WaterBench design-system tokens (PDF "Material Glass") -->
+    <attr name="wbBg" format="color" />
+    <attr name="wbSurface" format="color" />
+    <attr name="wbSurfaceStroke" format="color" />
+    <attr name="wbInputBg" format="color" />
+    <attr name="wbChipBg" format="color" />
+    <attr name="wbNavBg" format="color" />
+    <attr name="wbNavItemBg" format="color" />
+    <attr name="wbProgressTrack" format="color" />
+    <attr name="wbAccent" format="color" />
+    <attr name="wbAccentDim" format="color" />
+    <attr name="wbOnAccent" format="color" />
+    <attr name="wbTextPrimary" format="color" />
+    <attr name="wbTextSecondary" format="color" />
+    <attr name="wbTextMuted" format="color" />
+    <attr name="wbDanger" format="color" />
+    <attr name="wbDangerDim" format="color" />
+    <attr name="wbDangerStroke" format="color" />
+    <attr name="wbWarn" format="color" />
+    <attr name="wbWarnDim" format="color" />
+    <attr name="wbWarnStroke" format="color" />
+</resources>

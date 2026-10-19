@@ -1,0 +1,101 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- GLASS (default) — translucent mint-on-dark glass look from the design PDF -->
+    <style name="Theme.WaterBench" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="wbBg">#0A0F12</item>
+        <item name="wbSurface">#0E1F1C</item>
+        <item name="wbSurfaceStroke">#1E3B36</item>
+        <item name="wbInputBg">#14232020</item>
+        <item name="wbChipBg">#164138</item>
+        <item name="wbNavBg">#E6111614</item>
+        <item name="wbNavItemBg">#331E3B36</item>
+        <item name="wbProgressTrack">#1A2A26</item>
+        <item name="wbAccent">#59D6B4</item>
+        <item name="wbAccentDim">#3E9C80</item>
+        <item name="wbOnAccent">#0A0F12</item>
+        <item name="wbTextPrimary">#F2F7F5</item>
+        <item name="wbTextSecondary">#9EB4AE</item>
+        <item name="wbTextMuted">#6E8B85</item>
+        <item name="wbDanger">#E5484D</item>
+        <item name="wbDangerDim">#4A1414</item>
+        <item name="wbDangerStroke">#7A1F1F</item>
+        <item name="wbWarn">#EFA35C</item>
+        <item name="wbWarnDim">#3E2A12</item>
+        <item name="wbWarnStroke">#6B4A1E</item>
+
+        <item name="android:windowBackground">#0A0F12</item>
+        <item name="android:colorPrimary">#59D6B4</item>
+        <item name="android:colorAccent">#59D6B4</item>
+        <item name="android:statusBarColor">#0A0F12</item>
+        <item name="android:navigationBarColor">#0A0F12</item>
+        <item name="colorSurface">#0E1F1C</item>
+        <item name="colorOnSurface">#F2F7F5</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+    </style>
+
+    <!-- LIGHT -->
+    <style name="Theme.WaterBench.Light">
+        <item name="wbBg">#F2F6F4</item>
+        <item name="wbSurface">#FFFFFF</item>
+        <item name="wbSurfaceStroke">#DCE5E1</item>
+        <item name="wbInputBg">#F7FAF8</item>
+        <item name="wbChipBg">#E8F1ED</item>
+        <item name="wbNavBg">#F5FFFFFF</item>
+        <item name="wbNavItemBg">#DFEDE7</item>
+        <item name="wbProgressTrack">#E2EAE6</item>
+        <item name="wbAccent">#148A64</item>
+        <item name="wbAccentDim">#0F6E4F</item>
+        <item name="wbOnAccent">#FFFFFF</item>
+        <item name="wbTextPrimary">#10201B</item>
+        <item name="wbTextSecondary">#45605A</item>
+        <item name="wbTextMuted">#7C918B</item>
+        <item name="wbDanger">#C93A3F</item>
+        <item name="wbDangerDim">#FBE9E9</item>
+        <item name="wbDangerStroke">#E4B6B8</item>
+        <item name="wbWarn">#A9681F</item>
+        <item name="wbWarnDim">#FBF0E2</item>
+        <item name="wbWarnStroke">#E3C9A4</item>
+
+        <item name="android:windowBackground">#F2F6F4</item>
+        <item name="android:colorPrimary">#148A64</item>
+        <item name="android:colorAccent">#148A64</item>
+        <item name="android:statusBarColor">#F2F6F4</item>
+        <item name="android:navigationBarColor">#F2F6F4</item>
+        <item name="colorSurface">#FFFFFF</item>
+        <item name="colorOnSurface">#10201B</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+
+    <!-- OLED — true black -->
+    <style name="Theme.WaterBench.OLED">
+        <item name="wbBg">#000000</item>
+        <item name="wbSurface">#0B0F0D</item>
+        <item name="wbSurfaceStroke">#1C2420</item>
+        <item name="wbInputBg">#141B18</item>
+        <item name="wbChipBg">#10201B</item>
+        <item name="wbNavBg">#E6050505</item>
+        <item name="wbNavItemBg">#261C2420</item>
+        <item name="wbProgressTrack">#101512</item>
+        <item name="wbAccent">#59D6B4</item>
+        <item name="wbAccentDim">#2E7A63</item>
+        <item name="wbOnAccent">#001913</item>
+        <item name="wbTextPrimary">#EAF2EF</item>
+        <item name="wbTextSecondary">#9AABA6</item>
+        <item name="wbTextMuted">#5F6E6B</item>
+        <item name="wbDanger">#FF6B6B</item>
+        <item name="wbDangerDim">#2A0E0E</item>
+        <item name="wbDangerStroke">#8A2A2E</item>
+        <item name="wbWarn">#FFB37A</item>
+        <item name="wbWarnDim">#2A1C0C</item>
+        <item name="wbWarnStroke">#7A5222</item>
+
+        <item name="android:windowBackground">#000000</item>
+        <item name="android:colorPrimary">#59D6B4</item>
+        <item name="android:colorAccent">#59D6B4</item>
+        <item name="android:statusBarColor">#000000</item>
+        <item name="android:navigationBarColor">#000000</item>
+        <item name="colorSurface">#0B0F0D</item>
+        <item name="colorOnSurface">#EAF2EF</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+    </style>
+</resources>

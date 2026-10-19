@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="WATERBENCH / CONTROLLER"
+        android:textColor="?attr/wbTextMuted" android:textSize="11sp"
+        android:letterSpacing="0.12" android:textStyle="bold" />
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Export data"
+        android:textColor="?attr/wbTextPrimary" android:textSize="28sp"
+        android:textStyle="bold" android:layout_marginTop="4dp" />
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="@string/tagline_export"
+        android:textColor="?attr/wbTextSecondary" android:textSize="13sp"
+        android:layout_marginBottom="20dp" />
+
+    <!-- DEVICE card -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:background="@drawable/card_bg"
+        android:padding="14dp" android:layout_marginBottom="12dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="DEVICE" android:textColor="?attr/wbTextMuted"
+            android:textSize="10sp" android:letterSpacing="0.12" android:textStyle="bold" />
+
+        <Spinner android:id="@+id/spnDevice"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+
+    <!-- DATE RANGE card -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:background="@drawable/card_bg"
+        android:padding="14dp" android:layout_marginBottom="12dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="DATE RANGE" android:textColor="?attr/wbTextMuted"
+            android:textSize="10sp" android:letterSpacing="0.12" android:textStyle="bold" />
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="8dp"
+            android:gravity="center_vertical">
+
+            <Button android:id="@+id/btnDateFrom"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp"
+                android:background="@drawable/input_bg"
+                android:text="From" android:textColor="?attr/wbTextPrimary"
+                android:textSize="13sp" android:textStyle="bold"
+                android:paddingStart="12dp" android:paddingEnd="12dp"
+                android:layout_marginEnd="8dp" />
+
+            <Button android:id="@+id/btnDateTo"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp"
+                android:background="@drawable/input_bg"
+                android:text="To" android:textColor="?attr/wbTextPrimary"
+                android:textSize="13sp" android:textStyle="bold"
+                android:paddingStart="12dp" android:paddingEnd="12dp" />
+
+        </LinearLayout>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Leave both empty to export all dates." android:textColor="?attr/wbTextMuted"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <!-- RECORD CATEGORIES card -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:background="@drawable/card_bg"
+        android:padding="14dp" android:layout_marginBottom="12dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="INCLUDE" android:textColor="?attr/wbTextMuted"
+            android:textSize="10sp" android:letterSpacing="0.12" android:textStyle="bold" />
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:layout_marginTop="8dp">
+
+            <CheckBox android:id="@+id/chkTelemetry"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Telemetry" android:textColor="?attr/wbTextPrimary"
+                android:textSize="13sp" android:checked="true" />
+
+            <CheckBox android:id="@+id/chkSessions"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Sessions" android:textColor="?attr/wbTextPrimary"
+                android:textSize="13sp" android:checked="true" />
+
+            <CheckBox android:id="@+id/chkCalibrations"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Calibration" android:textColor="?attr/wbTextPrimary"
+                android:textSize="13sp" android:checked="true" />
+
+            <CheckBox android:id="@+id/chkAlarms"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Alarms" android:textColor="?attr/wbTextPrimary"
+                android:textSize="13sp" android:checked="true" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- EXPORT FORMAT card -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:background="@drawable/card_bg"
+        android:padding="14dp" android:layout_marginBottom="20dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="FORMAT" android:textColor="?attr/wbTextMuted"
+            android:textSize="10sp" android:letterSpacing="0.12" android:textStyle="bold" />
+
+        <RadioGroup android:id="@+id/rgFormat"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="8dp">
+
+            <RadioButton android:id="@+id/rbCsv"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="CSV" android:textColor="?attr/wbTextPrimary"
+                android:textSize="13sp" android:checked="true" />
+
+            <RadioButton android:id="@+id/rbJson"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="JSON" android:textColor="?attr/wbTextPrimary"
+                android:textSize="13sp" />
+
+            <RadioButton android:id="@+id/rbPdf"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="PDF" android:textColor="?attr/wbTextPrimary"
+                android:textSize="13sp" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <!-- EXPORT FILE button -->
+    <Button android:id="@+id/btnExport"
+        android:layout_width="match_parent" android:layout_height="56dp"
+        android:background="@drawable/btn_normal"
+        android:text="EXPORT FILE" android:textColor="?attr/wbBg"
+        android:textStyle="bold" />
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" android:gravity="center"
+        android:text="Water-only supervised bench prototype · Not for medical or human use"
+        android:textColor="?attr/wbTextMuted" android:textSize="11sp" />
+
+</LinearLayout>

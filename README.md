@@ -20,6 +20,7 @@ Triveni combines an Android companion app with an ESP32 controller for a small p
 
 ## Contents
 
+- [App guide](docs/APP_GUIDE.md)
 - [Screenshots](#screenshots)
 - [Features](#features)
 - [How it works](#how-it-works)
@@ -176,6 +177,7 @@ The Android app disables platform backup so local telemetry and device history a
 app/                  Android app source, resources, and build configuration
 firmware/esp32/       ESP32 pump controller firmware
 docs/screenshots/     App screenshots
+docs/APP_GUIDE.md     App usage, setup, safety, and build guide
 icons/                Launcher icon source artwork and previews
 scripts/              Icon generation and signed release build helpers
 dist/                 Versioned signed release APK

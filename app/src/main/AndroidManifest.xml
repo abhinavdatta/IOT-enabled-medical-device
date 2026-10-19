@@ -12,7 +12,7 @@
         android:allowBackup="false"
         android:hardwareAccelerated="true"
         android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.WaterBench">
+        android:theme="@style/Theme.Triveni">
 
         <provider
             android:name="androidx.core.content.FileProvider"

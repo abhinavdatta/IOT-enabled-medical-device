@@ -2,7 +2,7 @@
 
     <!-- GLASS (default) — Material Glass: deep blue-green background, translucent
          teal surfaces, luminous teal accent, pale-teal borders -->
-    <style name="Theme.WaterBench" parent="Theme.MaterialComponents.NoActionBar">
+    <style name="Theme.Triveni" parent="Theme.MaterialComponents.NoActionBar">
         <item name="wbBg">#061014</item>
         <item name="wbSurface">#173237</item>
         <item name="wbSurfaceStroke">#2F4C50</item>
@@ -35,7 +35,7 @@
     </style>
 
     <!-- LIGHT -->
-    <style name="Theme.WaterBench.Light" parent="Theme.WaterBench">
+    <style name="Theme.Triveni.Light" parent="Theme.Triveni">
         <item name="wbBg">#F2F6F4</item>
         <item name="wbSurface">#FFFFFF</item>
         <item name="wbSurfaceStroke">#DCE5E1</item>
@@ -68,7 +68,7 @@
     </style>
 
     <!-- OLED — true black -->
-    <style name="Theme.WaterBench.OLED" parent="Theme.WaterBench">
+    <style name="Theme.Triveni.OLED" parent="Theme.Triveni">
         <item name="wbBg">#000000</item>
         <item name="wbSurface">#0B0F0D</item>
         <item name="wbSurfaceStroke">#1C2420</item>

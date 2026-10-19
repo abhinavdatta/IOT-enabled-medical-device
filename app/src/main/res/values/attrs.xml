@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- WaterBench design-system tokens (PDF "Material Glass") -->
+    <!-- Triveni design-system tokens (PDF "Material Glass") -->
     <attr name="wbBg" format="color" />
     <attr name="wbSurface" format="color" />
     <attr name="wbSurfaceStroke" format="color" />

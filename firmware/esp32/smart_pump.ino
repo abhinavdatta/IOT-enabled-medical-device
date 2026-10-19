@@ -57,7 +57,7 @@ constexpr uint8_t OLED_I2C_ADDRESS = 0x3C;
 
 // The companion app uses this local access point. A random PSK is created on
 // first boot so a password copied from source cannot authorize pump commands.
-constexpr char DEFAULT_WIFI_AP_SSID[] = "WaterBench-ESP32";
+constexpr char DEFAULT_WIFI_AP_SSID[] = "Triveni-ESP32";
 constexpr uint32_t APP_LINK_TIMEOUT_MS = 10000;
 constexpr uint32_t WIFI_RESTART_DELAY_MS = 750;
 constexpr uint32_t REMOTE_COMMAND_MIN_INTERVAL_MS = 250;

@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="icons/waterbench_icon_1024.png" width="132" alt="WaterBench Controller icon" />
+<img src="icons/triveni_icon_1024.png" width="132" alt="Triveni Controller icon" />
 
-# WaterBench Controller
+# Triveni Controller
 
 **A local-first Android controller and ESP32 water-pump research prototype.**
 
@@ -14,7 +14,7 @@
 
 ---
 
-WaterBench combines an Android companion app with an ESP32 controller for a small peristaltic pump. The app communicates directly with the device over its local Wi-Fi access point. Pump control, sensor checks, dose limits, and fault handling run on the ESP32, so the hardware remains responsible for its own safety if the phone disconnects.
+Triveni combines an Android companion app with an ESP32 controller for a small peristaltic pump. The app communicates directly with the device over its local Wi-Fi access point. Pump control, sensor checks, dose limits, and fault handling run on the ESP32, so the hardware remains responsible for its own safety if the phone disconnects.
 
 > **Important:** This is an experimental, water-only bench prototype. It is not a medical device. Never connect it to a person, an animal, an IV line, or medication.
 
@@ -33,15 +33,15 @@ WaterBench combines an Android companion app with an ESP32 controller for a smal
 
 | Dashboard | Calibration | Device history |
 |:--:|:--:|:--:|
-| <img src="docs/screenshots/01-home.png" width="250" alt="WaterBench dashboard showing pump status and telemetry" /> | <img src="docs/screenshots/03-calibrate.png" width="250" alt="WaterBench calibration screen" /> | <img src="docs/screenshots/04-history.png" width="250" alt="WaterBench device history screen" /> |
+| <img src="docs/screenshots/01-home.png" width="250" alt="Triveni dashboard showing pump status and telemetry" /> | <img src="docs/screenshots/03-calibrate.png" width="250" alt="Triveni calibration screen" /> | <img src="docs/screenshots/04-history.png" width="250" alt="Triveni device history screen" /> |
 
 | Settings | Device settings | Theme selection |
 |:--:|:--:|:--:|
-| <img src="docs/screenshots/06-settings.png" width="250" alt="WaterBench settings screen" /> | <img src="docs/screenshots/05-device-settings.png" width="250" alt="WaterBench device settings screen" /> | <img src="docs/screenshots/07-theme.png" width="250" alt="WaterBench theme selection screen" /> |
+| <img src="docs/screenshots/06-settings.png" width="250" alt="Triveni settings screen" /> | <img src="docs/screenshots/05-device-settings.png" width="250" alt="Triveni device settings screen" /> | <img src="docs/screenshots/07-theme.png" width="250" alt="Triveni theme selection screen" /> |
 
 | Data export |
 |:--:|
-| <img src="docs/screenshots/08-export.png" width="250" alt="WaterBench data export screen" /> |
+| <img src="docs/screenshots/08-export.png" width="250" alt="Triveni data export screen" /> |
 
 ## Features
 
@@ -85,7 +85,7 @@ The Android app requests device status and sends user commands. Sensor validatio
 | `/api/status` | `GET` | Read controller state and telemetry as JSON. |
 | `/api/command` | `POST` | Send a supported controller command as form data or JSON. |
 
-Supported command examples include `START`, `PAUSE`, `STOP`, `ACK_ALARM`, `RESUME`, `SET_FLOW 2.0`, and `SET_WIFI_NAME WaterBench_02`. The firmware validates commands and enforces local operating limits.
+Supported command examples include `START`, `PAUSE`, `STOP`, `ACK_ALARM`, `RESUME`, `SET_FLOW 2.0`, and `SET_WIFI_NAME Triveni_02`. The firmware validates commands and enforces local operating limits.
 
 ## Hardware and firmware setup
 
@@ -95,7 +95,7 @@ The ESP32 firmware is in [`firmware/esp32/smart_pump.ino`](firmware/esp32/smart_
 
 1. Flash the firmware and open the serial monitor at **115200 baud**.
 2. On first boot, the ESP32 generates and stores a unique Wi-Fi password and prints it once to the serial console. Save it securely.
-3. Join the `WaterBench-ESP32` network from the phone. The API is available at `http://192.168.4.1` while connected to that device network.
+3. Join the `Triveni-ESP32` network from the phone. The API is available at `http://192.168.4.1` while connected to that device network.
 4. Open the app and confirm the connection and telemetry before trying pump controls.
 
 The firmware uses a physical STOP input and independent interlocks. Verify them with water on the bench before any pump run. Firmware defaults are experimental and must be calibrated with the actual sensors and tubing.
@@ -156,7 +156,7 @@ gradle assembleRelease
 
 The signed APK is written to `app/build/outputs/apk/release/app-release.apk`. Keep the keystore and credentials in a secure secret store, maintain an independent backup, and never commit them.
 
-The current versioned release artifact is [`dist/WaterBench-Controller-v1.1-release.apk`](dist/WaterBench-Controller-v1.1-release.apk). It uses a replacement signing certificate. Android will not install it as an in-place update over an app signed with the former certificate; uninstall the old app first, or use the original signing identity only if update continuity is required and its compromise has been addressed.
+The checked-in [`dist/WaterBench-Controller-v1.1-release.apk`](dist/WaterBench-Controller-v1.1-release.apk) predates the Triveni rebrand and still displays the former app name. Build a fresh release from this source to get the Triveni label. That APK uses a replacement signing certificate, so Android will not install it as an in-place update over an app signed with the former certificate; uninstall the old app first, or use the original signing identity only if update continuity is required and its compromise has been addressed.
 
 **Signing does not guarantee a Play Protect verdict.** Android signing establishes package identity and integrity. Play Protect can still warn or block based on app behavior, reputation, distribution source, and other signals; verify the final artifact with Google Play Console or Play Protect before distribution.
 

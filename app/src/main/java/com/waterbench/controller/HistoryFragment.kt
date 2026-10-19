@@ -91,7 +91,7 @@ class HistoryFragment : Fragment() {
             val text = if (filtered.isEmpty()) "No log events to export." else filtered.joinToString("\n")
             val intent = android.content.Intent(Intent.ACTION_SEND).apply {
                 type = "text/plain"
-                putExtra(android.content.Intent.EXTRA_SUBJECT, "WaterBench event log")
+                putExtra(android.content.Intent.EXTRA_SUBJECT, "Triveni event log")
                 putExtra(android.content.Intent.EXTRA_TEXT, text)
             }
             startActivity(Intent.createChooser(intent, getString(R.string.export_logs)))

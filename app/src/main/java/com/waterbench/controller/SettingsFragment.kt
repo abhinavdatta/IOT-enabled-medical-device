@@ -104,7 +104,7 @@ class SettingsFragment : Fragment() {
             val input = android.widget.EditText(requireContext()).apply { hint = "Device name" }
             android.app.AlertDialog.Builder(requireContext())
                 .setTitle(getString(R.string.add_device))
-                .setMessage("Enter a name for the new WaterBench device.")
+                .setMessage("Enter a name for the new Triveni device.")
                 .setView(input)
                 .setPositiveButton("Add") { _, _ ->
                     val name = input.text?.toString()?.trim()

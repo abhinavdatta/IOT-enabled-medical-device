@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 
 /**
- * Manages the WaterBench appearance themes (Glass / Light / OLED).
+ * Manages the Triveni appearance themes (Glass / Light / OLED).
  *
  * The selected theme is persisted in SharedPreferences so it survives
  * process death. Call [apply] before setContentView in every activity
@@ -50,9 +50,9 @@ object ThemeManager {
 
     /** Maps a theme name to its style resource id. */
     fun themeResId(theme: String): Int = when (theme) {
-        THEME_LIGHT -> R.style.Theme_WaterBench_Light
-        THEME_OLED -> R.style.Theme_WaterBench_OLED
-        else -> R.style.Theme_WaterBench
+        THEME_LIGHT -> R.style.Theme_Triveni_Light
+        THEME_OLED -> R.style.Theme_Triveni_OLED
+        else -> R.style.Theme_Triveni
     }
 
     /** Returns true if OLED (true-black) theme is active — useful for disabling blur. */

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WaterBench Controller</string>
+    <string name="app_name">Triveni</string>
     <string name="tagline_home">Your water-test rig, at a glance.</string>
     <string name="tagline_alert">A fault has been reported by the ESP32.</string>
     <string name="tagline_calibration">Measure collected water to improve the estimate.</string>

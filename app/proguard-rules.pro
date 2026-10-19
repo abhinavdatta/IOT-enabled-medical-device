@@ -1,4 +1,4 @@
-# ProGuard rules for WaterBench Controller.
+# ProGuard rules for Triveni Controller.
 -keepattributes SourceFile,LineNumberTable
 -renamesourcefileattribute SourceFile
 

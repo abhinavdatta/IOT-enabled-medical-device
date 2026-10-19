@@ -1,4 +1,4 @@
-"""Generate Android launcher icons for WaterBench from icons/waterbench_icon_1024.png.
+"""Generate Android launcher icons for Triveni from icons/triveni_icon_1024.png.
 
 Outputs:
   res/mipmap-{mdpi,hdpi,xhdpi,xxhdpi,xxxhdpi}/ic_launcher.png            (legacy API 24/25)
@@ -9,7 +9,7 @@ from PIL import Image
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root (script lives in scripts/)
-SRC = os.path.join(ROOT, "icons", "waterbench_icon_1024.png")
+SRC = os.path.join(ROOT, "icons", "triveni_icon_1024.png")
 RES = os.path.join(ROOT, "app", "src", "main", "res")
 
 # density -> (legacy launcher px, adaptive 108dp canvas px)

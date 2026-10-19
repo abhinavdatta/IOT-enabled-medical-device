@@ -98,7 +98,7 @@ class HomeFragment : Fragment() {
         btnAddDevice.setOnClickListener {
             val dlg = android.app.AlertDialog.Builder(requireContext())
             dlg.setTitle("Add new device")
-            dlg.setMessage("Enter a name for the new WaterBench device.")
+            dlg.setMessage("Enter a name for the new Triveni device.")
             val input = android.widget.EditText(requireContext())
             input.hint = "Device name"
             dlg.setView(input)

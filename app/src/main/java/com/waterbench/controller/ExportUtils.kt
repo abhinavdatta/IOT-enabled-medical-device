@@ -79,7 +79,7 @@ object ExportUtils {
             }
             putExtra(Intent.EXTRA_STREAM, uri)
             addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            putExtra(Intent.EXTRA_SUBJECT, "WaterBench export ${file.nameWithoutExtension}")
+            putExtra(Intent.EXTRA_SUBJECT, "Triveni export ${file.nameWithoutExtension}")
         }
     }
 
@@ -88,7 +88,7 @@ object ExportUtils {
     private fun exportCsv(context: Context, dir: File, base: String, req: ExportRequest): File {
         val file = File(dir, "$base.csv")
         OutputStreamWriter(FileOutputStream(file), "UTF-8").use { out ->
-            out.write("WaterBench Export,${dateFmt.format(Date())}\n")
+            out.write("Triveni Export,${dateFmt.format(Date())}\n")
             out.write("Device filter,${csvCell(req.deviceId ?: "All devices")}\n")
             out.write("Date range,${dateFmt.format(Date(req.from))} to ${dateFmt.format(Date(req.to))}\n\n")
 
@@ -205,7 +205,7 @@ object ExportUtils {
             paint.typeface = android.graphics.Typeface.create(android.graphics.Typeface.DEFAULT, android.graphics.Typeface.BOLD)
 
             var y = 40f
-            canvas.drawText("WaterBench — Data Export", 40f, y, paint); y += 20
+            canvas.drawText("Triveni — Data Export", 40f, y, paint); y += 20
             paint.typeface = android.graphics.Typeface.DEFAULT
             paint.textSize = 10f
             canvas.drawText("Exported ${dateFmt.format(Date())}", 40f, y, paint); y += 14

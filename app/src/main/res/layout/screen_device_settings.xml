@@ -34,7 +34,7 @@
 
         <TextView android:id="@+id/tvDeviceWifiName"
             android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="6dp" android:text="WaterBench-ESP32"
+            android:layout_marginTop="6dp" android:text="Triveni-ESP32"
             android:textColor="?attr/wbTextPrimary" android:textSize="20sp" android:textStyle="bold" />
 
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
         <EditText android:id="@+id/etWifiName"
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="8dp" android:background="@drawable/input_bg"
-            android:padding="12dp" android:hint="WaterBench_02" android:textColorHint="?attr/wbTextMuted"
+            android:padding="12dp" android:hint="Triveni_02" android:textColorHint="?attr/wbTextMuted"
             android:textColor="?attr/wbTextPrimary" android:textSize="14sp"
             android:inputType="text" android:maxLength="31" />
 

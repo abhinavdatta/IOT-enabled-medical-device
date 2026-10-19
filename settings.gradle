@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "WaterBench Controller"
+rootProject.name = "Triveni"
 include ':app'

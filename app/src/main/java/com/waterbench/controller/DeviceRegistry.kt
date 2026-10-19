@@ -8,7 +8,7 @@ import java.util.*
 
 /**
  * Registry of known ESP32 devices. Supports multiple paired devices so the user
- * can switch between rigs (e.g. "Device 1 · WaterBench-ESP32", "Device 2").
+ * can switch between rigs (e.g. "Device 1 · Triveni-ESP32", "Device 2").
  *
  * Each device keeps a display name, its HTTP base URL, its last-reported Wi-Fi
  * name, and whether it is currently connected. Selection is persisted in
@@ -123,7 +123,7 @@ object DeviceRegistry {
                 id = "device-1",
                 displayName = "Device 1",
                 baseUrl = Esp32Client.DEFAULT_BASE,
-                lastWifiName = "WaterBench-ESP32",
+                lastWifiName = "Triveni-ESP32",
                 connected = false
             )
         )

@@ -9,7 +9,7 @@
         android:orientation="vertical">
 
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="WATERBENCH / CONTROLLER"
+            android:text="TRIVENI"
             android:textColor="?attr/wbTextMuted" android:textSize="11sp"
             android:letterSpacing="0.12"
             android:textStyle="bold" />
@@ -86,7 +86,7 @@
 
         <TextView android:id="@+id/tvWifiName2"
             android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginStart="18dp" android:text="WaterBench-ESP32"
+            android:layout_marginStart="18dp" android:text="Triveni-ESP32"
             android:textColor="?attr/wbTextSecondary" android:textSize="13sp" />
     </LinearLayout>
 

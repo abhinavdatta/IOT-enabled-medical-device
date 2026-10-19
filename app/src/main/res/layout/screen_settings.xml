@@ -12,7 +12,7 @@
         android:padding="20dp">
 
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="WATERBENCH / CONTROLLER"
+            android:text="TRIVENI"
             android:textColor="?attr/wbTextMuted" android:textSize="11sp"
             android:letterSpacing="0.12" android:textStyle="bold" />
 
@@ -45,7 +45,7 @@
 
                 <TextView android:id="@+id/tvSettingsDevice"
                     android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp" android:text="Device 1 · WaterBench-ESP32"
+                    android:layout_marginStart="8dp" android:text="Device 1 · Triveni-ESP32"
                     android:textColor="?attr/wbTextPrimary" android:textSize="14sp" android:textStyle="bold" />
 
                 <TextView android:id="@+id/tvSettingsConn"
@@ -55,7 +55,7 @@
 
             <TextView android:id="@+id/tvSettingsWifiName"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:layout_marginTop="6dp" android:text="WaterBench-ESP32"
+                android:layout_marginTop="6dp" android:text="Triveni-ESP32"
                 android:textColor="?attr/wbTextPrimary" android:textSize="16sp" android:textStyle="bold" />
 
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"

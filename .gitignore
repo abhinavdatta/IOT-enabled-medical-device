@@ -3,6 +3,8 @@
 build/
 app/build/
 local.properties
+app/keystores/
+app/keystore.properties
 
 # IDE
 .idea/

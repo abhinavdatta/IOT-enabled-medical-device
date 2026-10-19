@@ -3,8 +3,6 @@ package com.waterbench.controller
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
@@ -18,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var vm: MainViewModel
     private lateinit var fragmentContainer: FragmentContainerView
-    private lateinit var navButtons: List<ImageButton>
+    private lateinit var navButtons: List<View>
 
     private var current: Int = -1
 

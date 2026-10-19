@@ -18,7 +18,7 @@
 
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:text="Device log" android:textColor="?attr/wbTextPrimary"
-            android:textSize="28sp" android:textStyle="bold" android:layout_marginTop="4dp" />
+            android:textSize="25sp" android:textStyle="bold" android:layout_marginTop="4dp" />
 
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:text="@string/tagline_history" android:textColor="?attr/wbTextSecondary"

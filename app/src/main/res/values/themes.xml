@@ -1,21 +1,22 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- GLASS (default) — translucent mint-on-dark glass look from the design PDF -->
+    <!-- GLASS (default) — Material Glass: deep blue-green background, translucent
+         teal surfaces, luminous teal accent, pale-teal borders -->
     <style name="Theme.WaterBench" parent="Theme.MaterialComponents.NoActionBar">
-        <item name="wbBg">#0A0F12</item>
-        <item name="wbSurface">#0E1F1C</item>
-        <item name="wbSurfaceStroke">#1E3B36</item>
-        <item name="wbInputBg">#14232020</item>
-        <item name="wbChipBg">#164138</item>
-        <item name="wbNavBg">#E6111614</item>
-        <item name="wbNavItemBg">#331E3B36</item>
-        <item name="wbProgressTrack">#1A2A26</item>
-        <item name="wbAccent">#59D6B4</item>
-        <item name="wbAccentDim">#3E9C80</item>
-        <item name="wbOnAccent">#0A0F12</item>
-        <item name="wbTextPrimary">#F2F7F5</item>
-        <item name="wbTextSecondary">#9EB4AE</item>
-        <item name="wbTextMuted">#6E8B85</item>
+        <item name="wbBg">#061014</item>
+        <item name="wbSurface">#173237</item>
+        <item name="wbSurfaceStroke">#2F4C50</item>
+        <item name="wbInputBg">#141E2E33</item>
+        <item name="wbChipBg">#17393C</item>
+        <item name="wbNavBg">#E60B1B1E</item>
+        <item name="wbNavItemBg">#26464A</item>
+        <item name="wbProgressTrack">#1D3338</item>
+        <item name="wbAccent">#6BE0C7</item>
+        <item name="wbAccentDim">#4FB8A1</item>
+        <item name="wbOnAccent">#061014</item>
+        <item name="wbTextPrimary">#EDF8F6</item>
+        <item name="wbTextSecondary">#9DBFBD</item>
+        <item name="wbTextMuted">#7A9A98</item>
         <item name="wbDanger">#E5484D</item>
         <item name="wbDangerDim">#4A1414</item>
         <item name="wbDangerStroke">#7A1F1F</item>
@@ -23,13 +24,13 @@
         <item name="wbWarnDim">#3E2A12</item>
         <item name="wbWarnStroke">#6B4A1E</item>
 
-        <item name="android:windowBackground">#0A0F12</item>
-        <item name="android:colorPrimary">#59D6B4</item>
-        <item name="android:colorAccent">#59D6B4</item>
-        <item name="android:statusBarColor">#0A0F12</item>
-        <item name="android:navigationBarColor">#0A0F12</item>
-        <item name="colorSurface">#0E1F1C</item>
-        <item name="colorOnSurface">#F2F7F5</item>
+        <item name="android:windowBackground">#061014</item>
+        <item name="android:colorPrimary">#6BE0C7</item>
+        <item name="android:colorAccent">#6BE0C7</item>
+        <item name="android:statusBarColor">#061014</item>
+        <item name="android:navigationBarColor">#061014</item>
+        <item name="colorSurface">#173237</item>
+        <item name="colorOnSurface">#EDF8F6</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
     </style>
 

@@ -22,6 +22,11 @@ android {
             storePassword 'waterbench2026'
             keyAlias 'waterbench'
             keyPassword 'waterbench2026'
+            // Full modern signature coverage (v1 JAR + v2 + v3) so package
+            // verifiers and Play Protect see a completely signed release APK.
+            v1SigningEnabled true
+            v2SigningEnabled true
+            enableV3Signing true
         }
     }
 

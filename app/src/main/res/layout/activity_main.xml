@@ -18,32 +18,80 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingStart="8dp" android:paddingEnd="8dp"
-        android:paddingTop="8dp" android:paddingBottom="8dp"
+        android:paddingStart="10dp" android:paddingEnd="10dp"
+        android:paddingTop="8dp" android:paddingBottom="10dp"
         android:background="@drawable/nav_bg">
 
-        <ImageButton android:id="@+id/navHome"
-            android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp"
+        <LinearLayout android:id="@+id/navHome"
+            android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" android:gravity="center"
+            android:paddingTop="7dp" android:paddingBottom="7dp"
             android:background="@drawable/nav_item_selected"
-            android:src="@drawable/ic_home" android:contentDescription="Home"
-            android:scaleType="centerInside" />
+            android:clickable="true" android:focusable="true">
 
-        <ImageButton android:id="@+id/navCalibrate"
-            android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_calibration" android:contentDescription="Calibration"
-            android:scaleType="centerInside" />
+            <ImageView android:layout_width="20dp" android:layout_height="20dp"
+                android:src="@drawable/ic_home" android:contentDescription="@null"
+                android:importantForAccessibility="no" />
 
-        <ImageButton android:id="@+id/navHistory"
-            android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_history" android:contentDescription="History"
-            android:scaleType="centerInside" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Home" android:textSize="11sp"
+                android:textColor="?attr/wbTextSecondary"
+                android:layout_marginTop="3dp" />
+        </LinearLayout>
 
-        <ImageButton android:id="@+id/navSettings"
-            android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp"
+        <LinearLayout android:id="@+id/navCalibrate"
+            android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" android:gravity="center"
+            android:paddingTop="7dp" android:paddingBottom="7dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_settings" android:contentDescription="Settings"
-            android:scaleType="centerInside" />
+            android:clickable="true" android:focusable="true">
+
+            <ImageView android:layout_width="20dp" android:layout_height="20dp"
+                android:src="@drawable/ic_calibration" android:contentDescription="@null"
+                android:importantForAccessibility="no" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Calibration" android:textSize="11sp"
+                android:textColor="?attr/wbTextSecondary"
+                android:layout_marginTop="3dp" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/navHistory"
+            android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" android:gravity="center"
+            android:paddingTop="7dp" android:paddingBottom="7dp"
+            android:background="@android:color/transparent"
+            android:clickable="true" android:focusable="true">
+
+            <ImageView android:layout_width="20dp" android:layout_height="20dp"
+                android:src="@drawable/ic_history" android:contentDescription="@null"
+                android:importantForAccessibility="no" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="History" android:textSize="11sp"
+                android:textColor="?attr/wbTextSecondary"
+                android:layout_marginTop="3dp" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/navSettings"
+            android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" android:gravity="center"
+            android:paddingTop="7dp" android:paddingBottom="7dp"
+            android:background="@android:color/transparent"
+            android:clickable="true" android:focusable="true">
+
+            <ImageView android:layout_width="20dp" android:layout_height="20dp"
+                android:src="@drawable/ic_settings" android:contentDescription="@null"
+                android:importantForAccessibility="no" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Settings" android:textSize="11sp"
+                android:textColor="?attr/wbTextSecondary"
+                android:layout_marginTop="3dp" />
+        </LinearLayout>
     </LinearLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -25,11 +25,9 @@
                 android:textColor="?attr/wbTextSecondary" android:textSize="11sp"
                 android:letterSpacing="0.12" android:layout_marginStart="6dp" />
         </LinearLayout>
-    </LinearLayout>
-
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:text="Bench dashboard" android:textColor="?attr/wbTextPrimary"
-        android:textSize="28sp" android:textStyle="bold" android:layout_marginTop="4dp" />
+    </LinearLayout>        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Bench dashboard" android:textColor="?attr/wbTextPrimary"
+            android:textSize="25sp" android:textStyle="bold" android:layout_marginTop="4dp" />
 
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
         android:text="@string/tagline_home" android:textColor="?attr/wbTextSecondary"
@@ -119,11 +117,11 @@
 
             <TextView android:id="@+id/tvDropsDelivered"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="1" android:textColor="?attr/wbTextPrimary" android:textSize="42sp" android:textStyle="bold" />
+                android:text="1" android:textColor="?attr/wbTextPrimary" android:textSize="34sp" android:textStyle="bold" />
 
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text=" of 3 drops" android:textColor="?attr/wbTextSecondary"
-                android:textSize="14sp" android:layout_marginStart="6dp" android:layout_marginBottom="6dp" />
+                android:textSize="13sp" android:layout_marginStart="6dp" android:layout_marginBottom="4dp" />
 
             <TextView android:id="@+id/tvDropsLeft"
                 android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
@@ -148,7 +146,7 @@
             <TextView android:id="@+id/tvElapsed"
                 android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
                 android:layout_marginStart="10dp" android:text="00:00:16"
-                android:textColor="?attr/wbTextPrimary" android:textSize="18sp" />
+                android:textColor="?attr/wbTextPrimary" android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -167,7 +165,7 @@
             <TextView android:id="@+id/tvMotorPct"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:layout_marginTop="6dp" android:text="48%"
-                android:textColor="?attr/wbTextPrimary" android:textSize="28sp" android:textStyle="bold" />
+                android:textColor="?attr/wbTextPrimary" android:textSize="24sp" android:textStyle="bold" />
 
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="Commanded PWM · not RPM" android:textColor="?attr/wbTextMuted"
@@ -190,7 +188,7 @@
             <TextView android:id="@+id/tvBusV"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:layout_marginTop="6dp" android:text="4.91 V"
-                android:textColor="?attr/wbTextPrimary" android:textSize="28sp" android:textStyle="bold" />
+                android:textColor="?attr/wbTextPrimary" android:textSize="24sp" android:textStyle="bold" />
 
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="INA219 bus voltage" android:textColor="?attr/wbTextMuted"
@@ -213,17 +211,16 @@
             android:textSize="10sp" android:letterSpacing="0.12" android:textStyle="bold" />
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="horizontal" android:layout_marginTop="6dp">
-
-            <TextView android:id="@+id/tvPressure"
+            android:orientation="horizontal" android:layout_marginTop="6dp">            <TextView android:id="@+id/tvPressure"
                 android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
                 android:text="4.20 kPa" android:textColor="?attr/wbTextPrimary"
-                android:textSize="20sp" android:textStyle="bold" />
+                android:textSize="18sp" android:textStyle="bold" />
 
             <TextView android:id="@+id/tvFlow"
                 android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
                 android:gravity="end" android:text="1.850 mL/min"
-                android:textColor="?attr/wbTextPrimary" android:textSize="20sp" android:textStyle="bold" />
+                android:textColor="?attr/wbTextPrimary"
+                android:textSize="18sp" android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -297,7 +294,7 @@
     </LinearLayout>
 
     <Button android:id="@+id/btnStop"
-        android:layout_width="match_parent" android:layout_height="56dp"
+        android:layout_width="match_parent" android:layout_height="54dp"
         android:background="@drawable/btn_stop" android:text="STOP PUMP"
         android:textColor="?attr/wbTextPrimary" android:textStyle="bold" />
 

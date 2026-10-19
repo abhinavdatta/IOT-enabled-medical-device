@@ -1,13 +1,13 @@
 <resources>
     <color name="ic_launcher_background">#0A2730</color>
-    <color name="bg">#0A0F12</color>
-    <color name="card">#0E1F1C</color>
-    <color name="card_stroke">#1E3B36</color>
-    <color name="mint">#59D6B4</color>
-    <color name="mint_dim">#3E9C80</color>
-    <color name="text_primary">#F2F7F5</color>
-    <color name="text_secondary">#9EB4AE</color>
-    <color name="text_muted">#6E8B85</color>
+    <color name="bg">#061014</color>
+    <color name="card">#173237</color>
+    <color name="card_stroke">#2F4C50</color>
+    <color name="mint">#6BE0C7</color>
+    <color name="mint_dim">#4FB8A1</color>
+    <color name="text_primary">#EDF8F6</color>
+    <color name="text_secondary">#9DBFBD</color>
+    <color name="text_muted">#7A9A98</color>
     <color name="red">#E5484D</color>
     <color name="red_dim">#4A1414</color>
     <color name="red_stroke">#7A1F1F</color>

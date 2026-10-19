@@ -11,17 +11,19 @@ android {
         applicationId "com.waterbench.controller"
         minSdk 24
         targetSdk 34
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
         resValue "string", "app_name", "WaterBench Controller"
     }
 
     signingConfigs {
         release {
-            storeFile file('keystores/waterbench.keystore')
-            storePassword 'waterbench2026'
-            keyAlias 'waterbench'
-            keyPassword 'waterbench2026'
+            // Keep release credentials out of source control. Set these on the
+            // build machine/CI; the keystore path should point outside this repo.
+            storeFile file(System.getenv('WATERBENCH_RELEASE_STORE_FILE') ?: 'keystores/UNCONFIGURED.keystore')
+            storePassword System.getenv('WATERBENCH_RELEASE_STORE_PASSWORD') ?: ''
+            keyAlias System.getenv('WATERBENCH_RELEASE_KEY_ALIAS') ?: ''
+            keyPassword System.getenv('WATERBENCH_RELEASE_KEY_PASSWORD') ?: ''
             // Full modern signature coverage (v1 JAR + v2 + v3) so package
             // verifiers and Play Protect see a completely signed release APK.
             v1SigningEnabled true

@@ -35,7 +35,7 @@
     </style>
 
     <!-- LIGHT -->
-    <style name="Theme.WaterBench.Light">
+    <style name="Theme.WaterBench.Light" parent="Theme.WaterBench">
         <item name="wbBg">#F2F6F4</item>
         <item name="wbSurface">#FFFFFF</item>
         <item name="wbSurfaceStroke">#DCE5E1</item>
@@ -68,7 +68,7 @@
     </style>
 
     <!-- OLED — true black -->
-    <style name="Theme.WaterBench.OLED">
+    <style name="Theme.WaterBench.OLED" parent="Theme.WaterBench">
         <item name="wbBg">#000000</item>
         <item name="wbSurface">#0B0F0D</item>
         <item name="wbSurfaceStroke">#1C2420</item>

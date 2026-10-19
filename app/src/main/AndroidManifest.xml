@@ -9,6 +9,7 @@
         android:label="WaterBench Controller"
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
+        android:allowBackup="false"
         android:hardwareAccelerated="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.WaterBench">

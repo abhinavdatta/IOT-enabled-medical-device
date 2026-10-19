@@ -15,8 +15,6 @@ object Esp32Client {
 
     const val DEFAULT_BASE = "http://192.168.4.1"
     const val DEFAULT_WIFI_NAME = "WaterBench-ESP32"
-    const val DEFAULT_WIFI_PASSWORD_HINT = "WaterBench2026"
-
     private val _baseUrl = MutableStateFlow(DEFAULT_BASE)
     val baseUrl: StateFlow<String> = _baseUrl
 

@@ -38,7 +38,7 @@
             android:textColor="?attr/wbTextPrimary" android:textSize="20sp" android:textStyle="bold" />
 
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="2dp" android:text="WaterBench2026"
+            android:layout_marginTop="2dp" android:text="Wi-Fi password is generated on first boot; read it from the device serial console."
             android:textColor="?attr/wbTextSecondary" android:textSize="12sp" />
 
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"

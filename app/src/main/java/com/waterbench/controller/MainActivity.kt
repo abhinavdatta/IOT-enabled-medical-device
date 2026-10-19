@@ -21,6 +21,9 @@ class MainActivity : AppCompatActivity() {
     private var current: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Apply the persisted style before inflating any views. Applying it from
+        // the theme fragment's context only themes that context, not this Activity.
+        ThemeManager.applySaved(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 

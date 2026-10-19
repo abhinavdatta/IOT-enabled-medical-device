@@ -10,6 +10,7 @@
 #include <Wire.h>
 #include <WiFi.h>
 #include <WebServer.h>
+#include <esp_system.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_INA219.h>
@@ -54,12 +55,13 @@ constexpr int I2C_SDA_PIN = 21;
 constexpr int I2C_SCL_PIN = 22;
 constexpr uint8_t OLED_I2C_ADDRESS = 0x3C;
 
-// Password-protected local Wi-Fi access point for the companion app.
-// Change both values before sharing the device; the password must be at least 8 characters.
+// The companion app uses this local access point. A random PSK is created on
+// first boot so a password copied from source cannot authorize pump commands.
 constexpr char DEFAULT_WIFI_AP_SSID[] = "WaterBench-ESP32";
-constexpr char WIFI_AP_PASSWORD[] = "WaterBench2026";
 constexpr uint32_t APP_LINK_TIMEOUT_MS = 10000;
 constexpr uint32_t WIFI_RESTART_DELAY_MS = 750;
+constexpr uint32_t REMOTE_COMMAND_MIN_INTERVAL_MS = 250;
+constexpr uint32_t STATUS_MIN_INTERVAL_MS = 200;
 
 // ---- Experiment-specific constants: calibrate these with water before use ----
 constexpr float KP = 28.0f;                 // PWM counts per (mL/min) error
@@ -127,8 +129,12 @@ uint32_t runStartDrops = 0;
 uint32_t calibrationStartDrops = 0, calibrationStartMs = 0;
 uint8_t calibrationPwm = 0;
 String wifiApSsid = DEFAULT_WIFI_AP_SSID;
+String wifiApPassword;
 bool wifiRestartPending = false;
 uint32_t wifiRestartAtMs = 0;
+uint32_t lastRemoteCommandMs = 0;
+uint32_t lastStatusRequestMs = 0;
+const char *originHeaderNames[] = {"Origin"};
 // This bench controller remains local: the companion app uses the ESP32's own Wi-Fi network.
 
 const char *stateName(PumpState s) {
@@ -169,18 +175,34 @@ String makeStatusJson() {
   json += "}";
   return json;
 }
-void sendCorsHeaders() {
-  server.sendHeader("Access-Control-Allow-Origin", "*");
-  server.sendHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
-  server.sendHeader("Access-Control-Allow-Headers", "Content-Type");
+bool rejectBrowserOrigin() {
+  // The native companion app does not send Origin. Reject browser callers to
+  // prevent a webpage opened while connected to the device from issuing CSRF.
+  if (!server.hasHeader("Origin")) return false;
+  server.send(403, "application/json", "{\"error\":\"browser origin not allowed\"}");
+  return true;
+}
+String createWifiPassword() {
+  static const char HEX[] = "0123456789ABCDEF";
+  String password;
+  password.reserve(16);
+  for (uint8_t i = 0; i < 16; ++i) password += HEX[esp_random() & 0x0F];
+  return password;
 }
 void handleStatusApi() {
-  lastAppContactMs = millis();
-  sendCorsHeaders();
+  if (rejectBrowserOrigin()) return;
+  const uint32_t now = millis();
+  if (lastStatusRequestMs != 0 && now - lastStatusRequestMs < STATUS_MIN_INTERVAL_MS) {
+    server.sendHeader("Retry-After", "1");
+    server.send(429, "application/json", "{\"error\":\"status rate limit\"}");
+    return;
+  }
+  lastStatusRequestMs = now;
+  lastAppContactMs = now;
   server.send(200, "application/json", makeStatusJson());
 }
 void handleCommandApi() {
-  lastAppContactMs = millis();
+  if (rejectBrowserOrigin()) return;
   String command = server.hasArg("command") ? server.arg("command") : server.arg("plain");
   // Accept either a form field (command=START) or {"command":"START"} JSON.
   if (command.startsWith("{")) {
@@ -190,11 +212,21 @@ void handleCommandApi() {
     int lastQuote = command.indexOf('"', firstQuote + 1);
     command = (key >= 0 && colon >= 0 && firstQuote >= 0 && lastQuote > firstQuote) ? command.substring(firstQuote + 1, lastQuote) : "";
   }
+  String normalizedCommand = command;
+  normalizedCommand.trim();
+  normalizedCommand.toUpperCase();
+  const uint32_t now = millis();
+  if (normalizedCommand != "STOP" && lastRemoteCommandMs != 0 &&
+      now - lastRemoteCommandMs < REMOTE_COMMAND_MIN_INTERVAL_MS) {
+    server.sendHeader("Retry-After", "1");
+    server.send(429, "application/json", "{\"error\":\"command rate limit\"}");
+    return;
+  }
+  lastRemoteCommandMs = now;
+  lastAppContactMs = now;
   handleCommand(command, true);
-  sendCorsHeaders();
   server.send(200, "application/json", makeStatusJson());
 }
-void handleApiOptions() { sendCorsHeaders(); server.send(204); }
 bool isValidWifiName(const String &name) {
   if (name.length() < 1 || name.length() > 31) return false;
   for (size_t i = 0; i < name.length(); ++i) {
@@ -209,7 +241,7 @@ void restartWirelessAp() {
   WiFi.softAPdisconnect(true);
   delay(100);
   WiFi.mode(WIFI_AP);
-  bool started = WiFi.softAP(wifiApSsid.c_str(), WIFI_AP_PASSWORD, 6, false, 4);
+  bool started = WiFi.softAP(wifiApSsid.c_str(), wifiApPassword.c_str(), 6, false, 4);
   lastAppContactMs = 0;
   if (started) Serial.printf("Wi-Fi renamed: %s ready at http://%s/api/status\n", wifiApSsid.c_str(), WiFi.softAPIP().toString().c_str());
   else Serial.println("Wi-Fi AP could not restart; USB Serial control remains available.");
@@ -217,12 +249,11 @@ void restartWirelessAp() {
 
 void startWirelessApi() {
   WiFi.mode(WIFI_AP);
-  bool started = WiFi.softAP(wifiApSsid.c_str(), WIFI_AP_PASSWORD, 6, false, 4);
+  bool started = WiFi.softAP(wifiApSsid.c_str(), wifiApPassword.c_str(), 6, false, 4);
   server.on("/api/status", HTTP_GET, handleStatusApi);
   server.on("/api/command", HTTP_POST, handleCommandApi);
-  server.on("/api/status", HTTP_OPTIONS, handleApiOptions);
-  server.on("/api/command", HTTP_OPTIONS, handleApiOptions);
-  server.onNotFound([]() { sendCorsHeaders(); server.send(404, "application/json", "{\"error\":\"not found\"}"); });
+  server.onNotFound([]() { server.send(404, "application/json", "{\"error\":\"not found\"}"); });
+  server.collectHeaders(originHeaderNames, 1);
   server.begin();
   if (started) Serial.printf("Wi-Fi AP %s ready at http://%s/api/status\n", wifiApSsid.c_str(), WiFi.softAPIP().toString().c_str());
   else Serial.println("Wi-Fi AP could not start; USB Serial control remains available.");
@@ -468,6 +499,12 @@ void setup() {
   dropsPerMl = preferences.getFloat("dropsMl", DEFAULT_DROPS_PER_ML);
   wifiApSsid = preferences.getString("wifiName", DEFAULT_WIFI_AP_SSID);
   if (!isValidWifiName(wifiApSsid)) wifiApSsid = DEFAULT_WIFI_AP_SSID;
+  wifiApPassword = preferences.getString("wifiPass", "");
+  if (wifiApPassword.length() < 8) {
+    wifiApPassword = createWifiPassword();
+    preferences.putString("wifiPass", wifiApPassword);
+    Serial.printf("New Wi-Fi password (record securely): %s\n", wifiApPassword.c_str());
+  }
 #if defined(ESP32)
   #if ESP_ARDUINO_VERSION_MAJOR >= 3
     esp_task_wdt_config_t cfg = { .timeout_ms = WDT_TIMEOUT_S * 1000, .idle_core_mask = 0, .trigger_panic = true };

@@ -8,6 +8,7 @@ import android.graphics.pdf.PdfDocument
 import android.net.Uri
 import android.os.Environment
 import androidx.core.content.FileProvider
+import com.google.gson.Gson
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStreamWriter
@@ -25,6 +26,7 @@ import java.util.Locale
 object ExportUtils {
 
     private const val FILE_PROVIDER_AUTHORITY = "com.waterbench.controller.fileprovider"
+    private val gson = Gson()
 
     private val dateFmt = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US)
     private val fileDateFmt = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US)
@@ -87,7 +89,7 @@ object ExportUtils {
         val file = File(dir, "$base.csv")
         OutputStreamWriter(FileOutputStream(file), "UTF-8").use { out ->
             out.write("WaterBench Export,${dateFmt.format(Date())}\n")
-            out.write("Device filter,${req.deviceId ?: "All devices"}\n")
+            out.write("Device filter,${csvCell(req.deviceId ?: "All devices")}\n")
             out.write("Date range,${dateFmt.format(Date(req.from))} to ${dateFmt.format(Date(req.to))}\n\n")
 
             if (Category.TELEMETRY in req.categories) {
@@ -96,7 +98,7 @@ object ExportUtils {
                 DataRecorder.allTelemetry()
                     .filter { matches(req, it) }
                     .forEach { t ->
-                        out.write("${dateFmt.format(Date(t.ts))},${t.deviceId},${t.state},${t.fault},${t.flowMlMin},${t.dropsPerSecond},${t.pressureKpa},${t.currentMa},${t.pwm}\n")
+                        out.write("${dateFmt.format(Date(t.ts))},${csvCell(t.deviceId)},${csvCell(t.state)},${csvCell(t.fault)},${t.flowMlMin},${t.dropsPerSecond},${t.pressureKpa},${t.currentMa},${t.pwm}\n")
                     }
                 out.write("\n")
             }
@@ -106,7 +108,7 @@ object ExportUtils {
                 DataRecorder.allSessions()
                     .filter { matches(req, it) }
                     .forEach { s ->
-                        out.write("${s.id},${s.deviceId},${dateFmt.format(Date(s.startedAt))},${s.endedAt?.let { dateFmt.format(Date(it)) } ?: ""},${s.targetDrops},${s.dropsDelivered},${s.targetFlowMlMin},${s.avgFlowMlMin},${s.result}\n")
+                        out.write("${csvCell(s.id)},${csvCell(s.deviceId)},${dateFmt.format(Date(s.startedAt))},${s.endedAt?.let { dateFmt.format(Date(it)) } ?: ""},${s.targetDrops},${s.dropsDelivered},${s.targetFlowMlMin},${s.avgFlowMlMin},${csvCell(s.result)}\n")
                     }
                 out.write("\n")
             }
@@ -116,7 +118,7 @@ object ExportUtils {
                 DataRecorder.allCalibrations()
                     .filter { matches(req, it) }
                     .forEach { c ->
-                        out.write("${c.id},${c.deviceId},${dateFmt.format(Date(c.ts))},${c.pwm},${c.volumeMl},${c.dropsPerMl},${c.flowMlMin}\n")
+                        out.write("${csvCell(c.id)},${csvCell(c.deviceId)},${dateFmt.format(Date(c.ts))},${c.pwm},${c.volumeMl},${c.dropsPerMl},${c.flowMlMin}\n")
                     }
                 out.write("\n")
             }
@@ -126,7 +128,7 @@ object ExportUtils {
                 DataRecorder.allAlarms()
                     .filter { matches(req, it) }
                     .forEach { a ->
-                        out.write("${a.id},${a.deviceId},${dateFmt.format(Date(a.ts))},${a.fault},${a.state},${a.acknowledged}\n")
+                        out.write("${csvCell(a.id)},${csvCell(a.deviceId)},${dateFmt.format(Date(a.ts))},${csvCell(a.fault)},${csvCell(a.state)},${a.acknowledged}\n")
                     }
                 out.write("\n")
             }
@@ -268,6 +270,14 @@ object ExportUtils {
         out.write("=== $title ===\n")
     }
 
+    /** Quote external text as CSV and neutralize spreadsheet formula cells. */
+    private fun csvCell(value: String): String {
+        val firstMeaningful = value.trimStart(' ', '\t', '\r', '\n').firstOrNull()
+        val safe = if (firstMeaningful == '=' || firstMeaningful == '+' ||
+            firstMeaningful == '-' || firstMeaningful == '@') "'$value" else value
+        return "\"${safe.replace("\"", "\"\"")}\""
+    }
+
     private fun matches(req: ExportRequest, deviceId: String, ts: Long): Boolean {
         if (req.deviceId != null && deviceId != req.deviceId) return false
         return ts in req.from..req.to
@@ -290,7 +300,7 @@ object ExportUtils {
     private fun calibrationsCount(req: ExportRequest) = DataRecorder.allCalibrations().filter { matches(req, it.deviceId, it.ts) }.size
     private fun alarmsCount(req: ExportRequest) = DataRecorder.allAlarms().filter { matches(req, it.deviceId, it.ts) }.size
 
-    private fun jsonStr(s: String?): String = if (s == null) "null" else "\"${s.replace("\\", "\\\\").replace("\"", "\\\"")}\""
+    private fun jsonStr(s: String?): String = if (s == null) "null" else gson.toJson(s)
 
     private fun outputDir(context: Context): File {
         val external = context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)

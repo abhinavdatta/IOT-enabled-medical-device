@@ -2,7 +2,6 @@ package com.waterbench.controller
 
 import android.content.Context
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatDelegate
 
 /**
  * Manages the WaterBench appearance themes (Glass / Light / OLED).
@@ -32,8 +31,8 @@ object ThemeManager {
     }
 
     /**
-     * Persists the chosen theme and applies it to the given activity.
-     * Must be called before [android.app.Activity.setContentView].
+     * Persists the selected theme. The activity applies it before inflating
+     * views when it is recreated.
      */
     fun apply(context: Context, theme: String) {
         val t = if (theme in allThemes) theme else THEME_GLASS
@@ -42,14 +41,11 @@ object ThemeManager {
             .putString(KEY_THEME, t)
             .apply()
 
-        val resId = themeResId(t)
-        context.setTheme(resId)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 
-    /** Applies the previously persisted theme to the activity (call before setContentView). */
+    /** Applies the previously persisted theme to the activity before setContentView. */
     fun applySaved(context: Context) {
-        apply(context, current(context))
+        context.setTheme(themeResId(current(context)))
     }
 
     /** Maps a theme name to its style resource id. */
